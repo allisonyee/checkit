@@ -1,4 +1,0 @@
-checkit
-=======
-
-Simple todo app
