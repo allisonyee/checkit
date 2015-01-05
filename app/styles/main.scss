@@ -12,6 +12,7 @@ html, body {
     position: relative;
     height: 100%;
     z-index: 1;
+    background-color: #0EB1AF;
 }
 
 .container {
@@ -25,11 +26,30 @@ html, body {
     cursor: move;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+    opacity: 0.8;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   opacity: 0.8;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   opacity: 0.8;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #fff;
+   opacity: 0.8;
+}
+
 input {
     width: calc(100% - 100px);
     padding: 1em;
+    background-color: transparent;
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 30px;
+    color: #fff;
 
     &:focus {
         outline: 0;
@@ -40,11 +60,16 @@ input {
     border: 0;
 }
 
+.item {
+    border: 3px solid #fff;
+    border-right: 0;
+}
+
 .remove {
     float: right;
     display: inline-block;
     width: 100px;
-    height: 100px;
+    height: 102px;
     cursor: pointer;
-    background-color: #ff0000;
+    border: 3px solid #fff;
 }
