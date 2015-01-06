@@ -8,7 +8,15 @@
     <div ui-sortable ng-model="todos">
         <div class="row" ng-repeat="todo in todos track by $index">
             <input class="item" type="text" ng-model="todo">
-            <span class="remove" ng-click="removeTodo($index)" aria-label="Remove"></span>
+            <!-- <div class="checkbox">
+                <input class="remove" type="checkbox" ng-click="removeTodo($index)" aria-label="Remove">
+                <label></label>
+            </div> -->
+
+            <span class="checkbox checkbox-alt">
+                <input type="checkbox" id="cb" name="cb" />
+                <label for="cb" ng-click="removeTodo($index)"></label>
+            </span>
         </div>
     </div>
 </div>

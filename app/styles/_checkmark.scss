@@ -1,0 +1,76 @@
+/* Mixin for vendor prefixes */
+@mixin prefix($prop, $value) {
+  -moz-#{$prop}: $value;
+  -webkit-#{$prop}: $value;
+  -o-#{$prop}: $value;
+  -khtml-#{$prop}: $value;
+  #{$prop}: $value;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-ms-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; } 
+}
+
+// Create animation called 'check'
+@include keyframes(check) {
+  0% { height: 0; width: 0; }
+  25% { height: 0; width: 20px; }
+  50% { height: 40px; width: 20px; }
+}
+
+// Create the backgrounds for the checkboxes
+.checkbox, .checkbox-alt {
+  display: inline-block;
+  height: 102px;
+  width: 102px;
+  float: right;
+  border: 3px solid #fff;
+
+  
+  // Label functions as actual clickable area
+  label {
+    display: block;
+    height: 102px;
+    position: relative;
+    width: 102px;
+    
+    /*
+      This is the pseudo-element that has a border on the right and top. 
+      Once flipped horizontally and rotated, it looks like a checkmark.
+    */
+    &:hover:after {
+      @include prefix(transform, scaleX(-1) rotate(180deg + -45deg));
+      
+      /*
+        I want to position the symbol using the left top because when 
+        increasing the width and height of an object, it expands from the 
+        top left corner as well. That is what makes it looks like it's being drawn.
+      */
+      @include prefix(transform-origin, left top);
+      
+      // The borders
+      border-right: 5px solid #fff;
+      border-top: 5px solid #fff;
+      
+      // Positioning and stuff
+      position: absolute;
+      content: '';
+      display: block;
+      height: 40px;
+      width: 20px;
+      left: 28px;
+      top: 50px;
+    }
+  }
+  
+  input { display: none; }
+  
+  &.checkbox-alt {
+    label:hover:after {
+      @include prefix(animation, check 0.8s ease)
+    }
+  }
+}

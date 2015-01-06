@@ -1,3 +1,7 @@
+/* Variables */
+
+$primary-color: #0EB1AF;
+
 *,
 *:after,
 *:before {
@@ -12,7 +16,7 @@ html, body {
     position: relative;
     height: 100%;
     z-index: 1;
-    background-color: #0EB1AF;
+    background-color: $primary-color;
 }
 
 .container {
@@ -24,6 +28,19 @@ html, body {
 .row {
     padding: 10px 0 10px 5px; 
     cursor: move;
+}
+
+input {
+    width: calc(100% - 102px);
+    padding: 1em;
+    background-color: $primary-color;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 30px;
+    color: #fff;
+
+    &:focus {
+        outline: 0;
+    }
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -43,19 +60,6 @@ html, body {
    opacity: 0.8;
 }
 
-input {
-    width: calc(100% - 100px);
-    padding: 1em;
-    background-color: transparent;
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    font-size: 30px;
-    color: #fff;
-
-    &:focus {
-        outline: 0;
-    }
-}
-
 .add {
     border: 0;
 }
@@ -65,11 +69,4 @@ input {
     border-right: 0;
 }
 
-.remove {
-    float: right;
-    display: inline-block;
-    width: 100px;
-    height: 102px;
-    cursor: pointer;
-    border: 3px solid #fff;
-}
+@import 'checkmark';
