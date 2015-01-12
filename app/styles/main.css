@@ -101,13 +101,13 @@ input {
   50% {
     height: 40px;
     width: 20px; } }
-.checkbox, .checkbox-alt {
+.checkbox {
   display: inline-block;
   height: 102px;
   width: 102px;
   float: right;
   border: 3px solid #fff; }
-  .checkbox label, .checkbox-alt label {
+  .checkbox label {
     display: block;
     height: 102px;
     position: relative;
@@ -116,16 +116,16 @@ input {
       This is the pseudo-element that has a border on the right and top. 
       Once flipped horizontally and rotated, it looks like a checkmark.
     */ }
-    .checkbox label:hover:after, .checkbox-alt label:hover:after {
+    .checkbox label:hover:after {
       -moz-transform: scaleX(-1) rotate(135deg);
       -webkit-transform: scaleX(-1) rotate(135deg);
       -o-transform: scaleX(-1) rotate(135deg);
       -khtml-transform: scaleX(-1) rotate(135deg);
       transform: scaleX(-1) rotate(135deg);
       /*
-        I want to position the symbol using the left top because when 
-        increasing the width and height of an object, it expands from the 
-        top left corner as well. That is what makes it looks like it's being drawn.
+        Position the symbol using the left top because when increasing 
+        the width and height of an object, it expands from the top left 
+        corner as well. This is what makes it looks like it's being drawn.
       */
       -moz-transform-origin: left top;
       -webkit-transform-origin: left top;
@@ -141,9 +141,9 @@ input {
       width: 20px;
       left: 28px;
       top: 50px; }
-  .checkbox input, .checkbox-alt input {
+  .checkbox input {
     display: none; }
-  .checkbox.checkbox-alt label:hover:after, .checkbox-alt.checkbox-alt label:hover:after {
+  .checkbox.checkbox label:hover:after {
     -moz-animation: check 0.8s ease;
     -webkit-animation: check 0.8s ease;
     -o-animation: check 0.8s ease;
